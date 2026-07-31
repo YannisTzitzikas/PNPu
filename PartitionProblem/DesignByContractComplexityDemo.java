@@ -1,5 +1,5 @@
 /**
- * 
+ * @author Yannis Tzitzikas (yannistzitzik@gmail.com)
  */
 
 
@@ -7,19 +7,20 @@
 import java.util.Arrays;
 
 /**
- * Java 1.8 (Java 8) Compatible Implementation.
- * Demonstrates the practical exploitation of the Uncertainty-Parametric 
- * Complexity Framework (UP[K]) using Design-by-Contract (DbC).
+ * This is a Java 8 compatible implementation, that
+ * demonstrates the practical exploitation of the Uncertainty-Parametric 
+ * complexity framework (UP[K]) using Design-by-Contract (DbC).
  * 
  * Theory Connection:
  *  - C_verify(K) : Linear guard check O(n) verifying input property K.
  *  - UP[K] Solver: Hyper-fast O(1) mathematical execution when K is satisfied.
  *  - SLA Safety   : System rejects unstructured (K = \epsilon) large inputs 
  *                   before incurring worst-case exponential execution.
+ * 
  */
 public class DesignByContractComplexityDemo {
 
-    // --- Contract & SLA Infrastructure (Standard POJO for Java 1.8) ---
+    // --- Contract & SLA Infrastructure 
 
     public static class ExecutionReport {
     	private final int inputSize;

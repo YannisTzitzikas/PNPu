@@ -1,6 +1,3 @@
-/**
- * 
- */
 
 /**
  * @author Yannis Tzitzikas (yannistzitzik@gmail.com)
