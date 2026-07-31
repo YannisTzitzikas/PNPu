@@ -13,7 +13,7 @@ import java.util.Arrays;
  * 
  * Theory Connection:
  *  - C_verify(K) : Linear guard check O(n) verifying input property K.
- *  - UP[K] Solver: Hyper-fast O(1) mathematical execution when K is satisfied.
+ *  - P_u[K] Solver: Hyper-fast O(1) mathematical execution when K is satisfied.
  *  - SLA Safety   : System rejects unstructured (K = \epsilon) large inputs 
  *                   before incurring worst-case exponential execution.
  * 
@@ -67,7 +67,7 @@ public class DesignByContractComplexityDemo {
         /**
          * Solves the Partition Problem under Design-by-Contract.
          * First performs O(n) guard checks C_verify(K) to determine the property K.
-         * If K is satisfied, dispatches to the corresponding UP[K] O(1) solver.
+         * If K is satisfied, dispatches to the corresponding P_u[K] O(1) solver.
          */
         public ExecutionReport solveSlaGuaranteed(int[] s) {
             long startNanos = System.nanoTime();
@@ -109,7 +109,7 @@ public class DesignByContractComplexityDemo {
             long verifyTimeNanos = System.nanoTime() - startNanos;
 
             // =========================================================================
-            // TIER 2: UP[K] Dispatching - O(1) Mathematical Collapse
+            // TIER 2: P_u[K] Dispatching - O(1) Mathematical Collapse
             // =========================================================================
 
             if (allEqual) {
@@ -195,7 +195,7 @@ public class DesignByContractComplexityDemo {
 
     public static void main(String[] args) {
         System.out.println("================================================================================");
-        System.out.println(" DESIGN-BY-CONTRACT & PARAMETRIC COMPLEXITY (UP[K]) DEMONSTRATION (JAVA 1.8)");
+        System.out.println(" DESIGN-BY-CONTRACT & PARAMETRIC COMPLEXITY (P_u[K]) DEMONSTRATION (JAVA 1.8)");
         System.out.println("================================================================================\n");
 
         ParametricPartitionSolver solver = new ParametricPartitionSolver();
@@ -254,7 +254,7 @@ public class DesignByContractComplexityDemo {
         
         System.out.println("================================================================================");
         System.out.println(" SUMMARY OF PRACTICAL VALUE:");
-        System.out.println(" 1. Verifying property K in O(n) collapses NP-hard solving to O(1) in UP[K].");
+        System.out.println(" 1. Verifying property K in O(n) collapses NP-hard solving to O(1) in P_u[K].");
         System.out.println(" 2. Execution time for 10 Million elements took < 3ms, easily meeting <5ms SLAs.");
         System.out.println(" 3. Unstructured inputs are rejected upfront, guaranteeing deterministic latency.");
         System.out.println("================================================================================");
