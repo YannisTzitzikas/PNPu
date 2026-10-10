@@ -314,7 +314,8 @@ public class DesignByContractTspDemo {
         System.out.println("================================================================");
         System.out.println(" SUMMARY OF PRACTICAL VALUE:");
         System.out.println(" 1. A Monge/Demidenko matrix collapses TSP to O(n) (identity tour).");
-        System.out.println(" 2. Unstructured instances rejected upfront to guarantee deterministic latency.");
+        System.out.println(" 2. Unstructured small instances guarantee deterministic latency.");
+        System.out.println(" 3. Unstructured instances rejected upfront to guarantee deterministic latency.");
         System.out.println("================================================================\n");
     }
 

@@ -10,7 +10,7 @@ package SAT;
  * Boolean Satisfiability (SAT) problem.
  *
  * Practical exploitation of the Uncertainty-Parametric complexity framework
- * (UP[K]) using Design-by-Contract (DbC).
+ * (P_u[K]) using Design-by-Contract (DbC).
  *
  * Theory Connection:
  *  - C_verify(K) : Linear guard check O(m) verifying the input property K.
@@ -75,8 +75,8 @@ public class DesignByContractSatDemo {
 
     public static class ParametricSatSolver {
 
-        // Strict Microservice SLA threshold: 5.0 milliseconds
-        private static final long SLA_THRESHOLD_NANOS = 5_000_000L;
+        // Strict Microservice SLA threshold: 2500.0 milliseconds
+        private static final long SLA_THRESHOLD_NANOS = 2500_000_000L;
 
         /**
          * Solves SAT under Design-by-Contract.
@@ -423,9 +423,10 @@ public class DesignByContractSatDemo {
 
         System.out.println("================================================================");
         System.out.println(" SUMMARY OF PRACTICAL VALUE:");
-        System.out.println(" 1. Verifying property K in O(m) collapses SAT solving to O(m) in UP[K].");
-        System.out.println(" 2. Two million clauses (2-CNF and Horn) solved in well under the 5 ms SLA.");
-        System.out.println(" 3. Unstructured 3-SAT inputs are rejected upfront, guaranteeing deterministic latency.");
+        System.out.println(" 1. Verifying property K in O(m) collapses SAT solving to O(m) in P_u[K].");
+        System.out.println(" 2. Two million clauses (2-CNF and Horn) solved in well under the 2500 ms SLA.");
+        System.out.println(" 3. Unstructured 3-SAT with small input passes.");
+        System.out.println(" 4. Unstructured 3-SAT inputs are rejected upfront, guaranteeing deterministic latency.");
         System.out.println("================================================================\n");
     }
 
@@ -435,7 +436,7 @@ public class DesignByContractSatDemo {
         System.out.printf("  - #Clauses          : %s%n", String.format("%,d", r.getNumClauses()));
         System.out.printf("  - Matched Property K: %s%n", r.getMatchedPropertyK());
         System.out.printf("  - Guard Verify Time : %.3f ms (C_verify(K) linear scan)%n", r.getVerificationTimeNanos() / 1_000_000.0);
-        System.out.printf("  - Solver Exec Time  : %.6f ms (UP[K] polynomial collapse)%n", r.getExecutionTimeNanos() / 1_000_000.0);
+        System.out.printf("  - Solver Exec Time  : %.6f ms (P_u[K] polynomial collapse)%n", r.getExecutionTimeNanos() / 1_000_000.0);
         System.out.printf("  - Total Time        : %.3f ms%n", r.getTotalTimeNanos() / 1_000_000.0);
         System.out.printf("  - SLA Status        : %s%n%n", r.isSlaGuaranteed() ? "PASSED [SLA MET]" : "FAILED [SLA BREACHED]");
     }

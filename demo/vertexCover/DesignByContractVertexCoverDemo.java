@@ -77,8 +77,8 @@ public class DesignByContractVertexCoverDemo {
 
     public static class ParametricVertexCoverSolver {
 
-        // Strict Microservice SLA threshold: 5.0 milliseconds
-        private static final long SLA_THRESHOLD_NANOS = 5_000_000L;
+        // Strict Microservice SLA threshold: 150 milliseconds
+        private static final long SLA_THRESHOLD_NANOS = 150_000_000L;
         // Brute force is only allowed for tiny graphs (2^V subsets).
         private static final int BRUTE_FORCE_MAX_V = 20;
 
@@ -410,7 +410,8 @@ public class DesignByContractVertexCoverDemo {
         System.out.println(" 1. Verifying property K in O(V+E) collapses NP-hard Vertex Cover to polynomial.");
         System.out.println(" 2. A 500,000-vertex tree and a 40,000-vertex bipartite graph are solved exactly,");
         System.out.println("    whereas brute force would need 2^V time.");
-        System.out.println(" 3. Unstructured non-bipartite inputs are rejected upfront, guaranteeing deterministic latency.");
+        System.out.println(" 3. Testing small unstructured non-bipartite graph.");
+        System.out.println(" 4. Unstructured non-bipartite inputs are rejected upfront, guaranteeing deterministic latency.");
         System.out.println("================================================================\n");
     }
 

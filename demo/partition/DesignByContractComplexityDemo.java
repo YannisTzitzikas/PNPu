@@ -10,7 +10,7 @@ import java.util.Arrays;
 /**
  * This is a Java 8 compatible implementation, that
  * demonstrates the practical exploitation of the Uncertainty-Parametric 
- * complexity framework (UP[K]) using Design-by-Contract (DbC).
+ * complexity framework (P_u[K]) using Design-by-Contract (DbC).
  * 
  * Theory Connection:
  *  - C_verify(K) : Linear guard check O(n) verifying input property K.
@@ -266,7 +266,7 @@ public class DesignByContractComplexityDemo {
         System.out.printf("  - Input size         : %s%n", r.inputSize);
         System.out.printf("  - Matched Property K : %s%n", r.getMatchedPropertyK());
         System.out.printf("  - Guard Verify Time  : %.3f ms (C_verify(K) linear scan)%n", r.getVerificationTimeNanos() / 1_000_000.0);
-        System.out.printf("  - Solver Exec Time   : %.6f ms (UP[K] O(1) Collapse)%n", r.getExecutionTimeNanos() / 1_000_000.0);
+        System.out.printf("  - Solver Exec Time   : %.6f ms (P_u[K] O(1) Collapse)%n", r.getExecutionTimeNanos() / 1_000_000.0);
         System.out.printf("  - Total Time         : %.3f ms%n", r.getTotalTimeNanos() / 1_000_000.0);
         System.out.printf("  - SLA Status         : %s%n%n", r.isSlaGuaranteed() ? "PASSED [SLA MET]" : "FAILED [SLA BREACHED]");
     }
